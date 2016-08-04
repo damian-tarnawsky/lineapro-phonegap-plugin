@@ -3,13 +3,13 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="linea-pro-cdv"
-    version="0.2.6">
+    id="linea-pro-cdv-hmt"
+    version="0.2.7">
     <name>LineaProCDV</name>
     <description>LineaProCDV</description>
     <license>MIT</license>
-    <keywords>lineapro,thinksoftware,aaronthorp</keywords>
-    <repo>https://github.com/aaronthorp/lineapro-phonegap-plugin.git</repo>
+    <keywords>lineapro,holdmyticket</keywords>
+    <repo>https://github.com/HoldMyTicket/lineapro-phonegap-plugin.git</repo>
     <issue></issue>
 
     <engines>

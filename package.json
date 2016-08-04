@@ -1,16 +1,16 @@
 {
-  "name": "lineapro-phonegap-plugin",
-  "version": "0.2.6",
+  "name": "lineapro-phonegap-plugin-hmt",
+  "version": "0.2.7",
   "description": "LineaProCDV updated to work with WKWebView for iOS",
   "cordova": {
-    "id": "linea-pro-cdv",
+    "id": "linea-pro-cdv-hmt",
     "platforms": [
       "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aaronthorp/lineapro-phonegap-plugin.git"
+    "url": "git+https://github.com/HoldMyTicket/lineapro-phonegap-plugin.git"
   },
   "keywords": [
     "lineapro",
@@ -29,7 +29,7 @@
   "author": "Aaron Thorp",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aaronthorp/lineapro-phonegap-plugin/issues"
+    "url": "https://github.com/HoldMyTicket/lineapro-phonegap-plugin/issues"
   },
-  "homepage": "https://github.com/aaronthorp/lineapro-phonegap-plugin#readme"
+  "homepage": "https://github.com/HoldMyTicket/lineapro-phonegap-plugin#readme"
 }
