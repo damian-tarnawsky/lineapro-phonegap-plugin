@@ -386,7 +386,7 @@
                                       cancelButtonTitle:@"Cancel"
                                       otherButtonTitles:@"Say Hello",nil];
 [alert show];
-[alert release];
+
     @try {
     NSLog(@"barcodeData: barcode - %@, type - %@", barcode, [dtdev barcodeType2Text:type]);
     NSString* retStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", barcode, [dtdev barcodeType2Text:type]];
