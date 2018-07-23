@@ -422,6 +422,10 @@
     BOOL isFirst = TRUE;
     for (int i = 0; i < stringsArray.count; ++i) {
         NSString* currString = [stringsArray objectAtIndex:i];
+        currString = [currString stringByReplacingOccurrencesOfString:@"'"
+                                     withString:@""];
+        currString = [currString stringByReplacingOccurrencesOfString:@"\""
+                                     withString:@""];                                     
         if (currString.length <= 1) continue;
         arrayJSString = [NSString stringWithFormat:@"%@%@\"%@\"", arrayJSString, isFirst ? @"" : @",", currString];
         isFirst = FALSE;
@@ -462,12 +466,7 @@
     // NSLog(@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@", dateBirth, name, lastName, eye, state, city, height, weight, gender, hair, expires, license);
 
     NSString* rawCodesArrJSString = [LineaProCDV generateStringForArrayEvaluationInJS:codesArr];    
-        UIAlertView *alert3 = [[UIAlertView alloc] initWithTitle:@"Title"
-                                                message:rawCodesArrJSString
-                                               delegate:self
-                                      cancelButtonTitle:@"Cancel"
-                                      otherButtonTitles:@"Say Hello",nil];
-[alert3 show];     
+   
     //LineaProCDV.onBarcodeData(scanId, dob, state, city, expires, gender, height, weight, hair, eye)
     //NSString* retStr = [ NSString stringWithFormat:@"var rawCodesArr = %@; LineaProCDV.onBarcodeData(rawCodesArr, '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@');", rawCodesArrJSString, license, dateBirth, state, city, expires, gender, height, weight, hair, eye, name, lastName];
     NSString* retStr = [ NSString stringWithFormat:@"var rawCodesArr = %@; LineaProCDV.onBarcodeData(rawCodesArr, '%@');", rawCodesArrJSString, [dtdev barcodeType2Text:type]];
