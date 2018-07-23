@@ -455,7 +455,7 @@
     [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
     }
     @catch (NSException * e) {
-       NSString* errStr = exception.reason;
+       NSString* errStr = e.reason;
        [self.webViewEngine evaluateJavaScript:errStr completionHandler:nil];
     }
     //[[super webView] stringByEvaluatingJavaScriptFromString:retStr];
