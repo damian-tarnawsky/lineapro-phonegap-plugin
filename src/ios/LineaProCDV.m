@@ -58,12 +58,7 @@
         [dtdev addDelegate:self];
         [dtdev connect];
     }
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                                message:@"Init"
-                                               delegate:self
-                                      cancelButtonTitle:@"Cancel"
-                                      otherButtonTitles:@"Say Hello",nil];
-[alert show];   
+
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
@@ -437,6 +432,13 @@
 
 - (void) barcodeNSData: (NSData *) barcode type:(int) type {
     @try {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
+                                                message:@"Barcode"
+                                               delegate:self
+                                      cancelButtonTitle:@"Cancel"
+                                      otherButtonTitles:@"Say Hello",nil];
+[alert show];   
+
     NSLog(@"barcodeNSData: barcode - %@, type - %@", [[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding], [dtdev barcodeType2Text:type]);
     NSArray *codesArr = [[[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:
                         [NSCharacterSet characterSetWithCharactersInString:@"\n\r"]];
