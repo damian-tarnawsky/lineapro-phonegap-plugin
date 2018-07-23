@@ -418,6 +418,7 @@
 }
 
 - (void) barcodeNSData: (NSData *) barcode type:(int) type {
+    @try {
     NSLog(@"barcodeNSData: barcode - %@, type - %@", [[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding], [dtdev barcodeType2Text:type]);
     NSArray *codesArr = [[[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:
                         [NSCharacterSet characterSetWithCharactersInString:@"\n\r"]];
@@ -452,6 +453,11 @@
     //NSString* retStr = [ NSString stringWithFormat:@"var rawCodesArr = %@; LineaProCDV.onBarcodeData(rawCodesArr, '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@');", rawCodesArrJSString, license, dateBirth, state, city, expires, gender, height, weight, hair, eye, name, lastName];
     NSString* retStr = [ NSString stringWithFormat:@"var rawCodesArr = %@; LineaProCDV.onBarcodeData(rawCodesArr);", rawCodesArrJSString];
     [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
+    }
+    @catch (NSException * e) {
+       NSString* errStr = exception.reason;
+       [self.webViewEngine evaluateJavaScript:errStr completionHandler:nil];
+    }
     //[[super webView] stringByEvaluatingJavaScriptFromString:retStr];
 }
 
