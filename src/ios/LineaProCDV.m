@@ -58,6 +58,12 @@
         [dtdev addDelegate:self];
         [dtdev connect];
     }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
+                                                message:@"Init"
+                                               delegate:self
+                                      cancelButtonTitle:@"Cancel"
+                                      otherButtonTitles:@"Say Hello",nil];
+[alert show];   
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
@@ -381,9 +387,9 @@
 
 - (void) barcodeData: (NSString *) barcode type:(int) type {
     @try {
-    NSLog(@"barcodeData: barcode - %@, type - %@", barcode, [dtdev barcodeType2Text:type]);
-    NSString* retStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", barcode, [dtdev barcodeType2Text:type]];
-    [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
+       NSLog(@"barcodeData: barcode - %@, type - %@", barcode, [dtdev barcodeType2Text:type]);
+       NSString* retStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", barcode, [dtdev barcodeType2Text:type]];
+       [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
     }
     @catch (NSException * e) {
        NSString* errStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", e.reason, @"BAD"];
@@ -393,16 +399,10 @@
 }
 
 - (void) barcodeNSData: (NSData *) barcode isotype:(NSString *) isotype {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                                message:barcode
-                                               delegate:self
-                                      cancelButtonTitle:@"Cancel"
-                                      otherButtonTitles:@"Say Hello",nil];
-[alert show];   
     @try { 
-    NSLog(@"barcodeNSData: barcode - %@, type - %@", [[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding], isotype);
-    NSString* retStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", [[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding], isotype];
-    [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
+       NSLog(@"barcodeNSData: barcode - %@, type - %@", [[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding], isotype);
+       NSString* retStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", [[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding], isotype];
+       [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
     }
     @catch (NSException * e) {
        NSString* errStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", e.reason, @"BAD"];
