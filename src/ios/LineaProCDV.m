@@ -384,6 +384,7 @@
     NSLog(@"barcodeData: barcode - %@, type - %@", barcode, [dtdev barcodeType2Text:type]);
     NSString* retStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", barcode, [dtdev barcodeType2Text:type]];
     [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
+    }
     @catch (NSException * e) {
        NSString* errStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", e.reason, 'bad'];
        [self.webViewEngine evaluateJavaScript:errStr completionHandler:nil];
