@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:rim="http://www.blackberry.com/ns/widgets"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    id="lineapro-phonegap-plugin-hmt"
-    version="0.2.8">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:rim="http://www.blackberry.com/ns/widgets" 
+    xmlns:android="http://schemas.android.com/apk/res/android" id="lineapro-phonegap-plugin-hmt" version="1.0.0">
     <name>LineaProCDV</name>
     <description>LineaProCDV</description>
     <license>MIT</license>
-    <keywords>lineapro,holdmyticket</keywords>
-    <repo>https://github.com/HoldMyTicket/lineapro-phonegap-plugin.git</repo>
+    <keywords>lineapro</keywords>
+    <repo>https://github.com/damian-tarnawsky/lineapro-phonegap-plugin</repo>
     <issue></issue>
 
     <engines>
-      <engine name="cordova-ios" version=">=1.7.1" />
+        <engine name="cordova-ios" version=">=1.7.1" />
     </engines>
 
     <js-module src="www/LineaProCDV.js" name="LineaProCDV">
-      <clobbers target="LineaProCDV" />
+        <clobbers target="LineaProCDV" />
     </js-module>
 
     <!-- ios -->
@@ -39,12 +37,12 @@
         <framework src="MediaPlayer.framework" />
 
         <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
-          <array>
-        		<string>com.datecs.linea.pro.msr</string>
-        		<string>com.datecs.iserial.communication</string>
-        		<string>com.datecs.pinpad</string>
-        		<string>com.datecs.linea.pro.bar</string>
-      	  </array>
+            <array>
+                <string>com.datecs.linea.pro.msr</string>
+                <string>com.datecs.iserial.communication</string>
+                <string>com.datecs.pinpad</string>
+                <string>com.datecs.linea.pro.bar</string>
+            </array>
         </config-file>
 
     </platform>
