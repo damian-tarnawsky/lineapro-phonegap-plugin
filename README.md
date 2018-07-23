@@ -1,6 +1,7 @@
 # lineapro-phonegap-plugin
 
 Using DTDevices SDK v2.2 (29/09/2017)
+Fixes issue related to drivers licenses with invalid data (eg old New Mexico drivers licenses)
 
 ## Quick start
 
