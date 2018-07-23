@@ -94,8 +94,8 @@ LineaProCDV.prototype.prnPrintZPL = function(data) {
 };
 
 LineaProCDV.prototype.onBarcodeData = function(
-  rawCodesArr
-  //   scanId,
+  rawCodesArr,
+  scanId
   //   dob,
   //   state,
   //   city,
@@ -109,8 +109,8 @@ LineaProCDV.prototype.onBarcodeData = function(
   //   lastName
 ) {
   var data = {
-    rawCodesArr: rawCodesArr
-    //    scanId: scanId,
+    rawCodesArr: rawCodesArr,
+    scanId: scanId
     //    dob: dob,
     //    state: state,
     //    city: city,
