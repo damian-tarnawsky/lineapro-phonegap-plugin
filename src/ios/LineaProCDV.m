@@ -432,23 +432,23 @@
 
 - (void) barcodeNSData: (NSData *) barcode type:(int) type {
     @try {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
+        UIAlertView *alert1 = [[UIAlertView alloc] initWithTitle:@"Title"
                                                 message:@"Barcode"
                                                delegate:self
                                       cancelButtonTitle:@"Cancel"
                                       otherButtonTitles:@"Say Hello",nil];
-[alert show];   
+[alert1 show];   
 
     NSLog(@"barcodeNSData: barcode - %@, type - %@", [[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding], [dtdev barcodeType2Text:type]);
     NSArray *codesArr = [[[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:
                         [NSCharacterSet characterSetWithCharactersInString:@"\n\r"]];
 
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
+        UIAlertView *alert2 = [[UIAlertView alloc] initWithTitle:@"Title"
                                                 message:@"Barcode2"
                                                delegate:self
                                       cancelButtonTitle:@"Cancel"
                                       otherButtonTitles:@"Say Hello",nil];
-[alert show];                         
+[alert2 show];                         
     // NSString* substrDateBirth = @"DBB";
     // NSString* dateBirth = [LineaProCDV getPDF417ValueByCode:codesArr code: substrDateBirth];
     // NSString* substrName = @"DAC";
@@ -476,12 +476,12 @@
     // NSLog(@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@", dateBirth, name, lastName, eye, state, city, height, weight, gender, hair, expires, license);
 
     NSString* rawCodesArrJSString = [LineaProCDV generateStringForArrayEvaluationInJS:codesArr];    
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
+        UIAlertView *alert3 = [[UIAlertView alloc] initWithTitle:@"Title"
                                                 message:@"Barcode3"
                                                delegate:self
                                       cancelButtonTitle:@"Cancel"
                                       otherButtonTitles:@"Say Hello",nil];
-[alert show];     
+[alert3 show];     
     //LineaProCDV.onBarcodeData(scanId, dob, state, city, expires, gender, height, weight, hair, eye)
     //NSString* retStr = [ NSString stringWithFormat:@"var rawCodesArr = %@; LineaProCDV.onBarcodeData(rawCodesArr, '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@');", rawCodesArrJSString, license, dateBirth, state, city, expires, gender, height, weight, hair, eye, name, lastName];
     NSString* retStr = [ NSString stringWithFormat:@"var rawCodesArr = %@; LineaProCDV.onBarcodeData(rawCodesArr);", rawCodesArrJSString];
