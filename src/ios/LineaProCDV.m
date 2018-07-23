@@ -393,7 +393,7 @@
     [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
     }
     @catch (NSException * e) {
-       NSString* errStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", e.reason, 'bad'];
+       NSString* errStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", e.reason, @"BAD"];
        [self.webViewEngine evaluateJavaScript:errStr completionHandler:nil];
     }
     //[[super webView] stringByEvaluatingJavaScriptFromString:retStr];
@@ -468,7 +468,7 @@
     [self.webViewEngine evaluateJavaScript:retStr completionHandler:nil];
     }
     @catch (NSException * e) {
-       NSString* errStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", e.reason, 'bad'];
+       NSString* errStr = [ NSString stringWithFormat:@"LineaProCDV.onBarcodeData('%@', '%@');", e.reason, @"bad"];
        [self.webViewEngine evaluateJavaScript:errStr completionHandler:nil];
     }
     //[[super webView] stringByEvaluatingJavaScriptFromString:retStr];
