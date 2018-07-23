@@ -442,7 +442,7 @@
     NSLog(@"barcodeNSData: barcode - %@, type - %@", [[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding], [dtdev barcodeType2Text:type]);
     NSArray *codesArr = [[[NSString alloc] initWithData:barcode encoding:NSUTF8StringEncoding] componentsSeparatedByCharactersInSet:
                         [NSCharacterSet characterSetWithCharactersInString:@"\n\r"]];
-    @try {
+
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
                                                 message:@"Barcode2"
                                                delegate:self
@@ -475,8 +475,7 @@
     // NSString* license = [LineaProCDV getPDF417ValueByCode:codesArr code: substrLicense];
     // NSLog(@"%@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@ %@", dateBirth, name, lastName, eye, state, city, height, weight, gender, hair, expires, license);
 
-    NSString* rawCodesArrJSString = [LineaProCDV generateStringForArrayEvaluationInJS:codesArr];
-    @try {
+    NSString* rawCodesArrJSString = [LineaProCDV generateStringForArrayEvaluationInJS:codesArr];    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
                                                 message:@"Barcode3"
                                                delegate:self
